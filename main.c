@@ -14,6 +14,11 @@ int main() {
 
     cyw43_arch_init();
 
+    gpio_init(LED_PIN_0);
+    gpio_set_dir(LED_PIN_0,GPIO_OUT);
+    gpio_init(LED_PIN_1);
+    gpio_set_dir(LED_PIN_1,GPIO_OUT);
+
     cyw43_arch_enable_sta_mode();
 
     // Connect to the WiFI network - loop until connected
