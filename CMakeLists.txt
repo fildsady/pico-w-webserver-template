@@ -53,6 +53,14 @@ target_link_libraries(${PROGRAM_NAME}
     hardware_adc
 )
 
+# เช็ด Memory ที่ใช้หลัง Complie
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND arm-none-eabi-size ${CMAKE_CURRENT_LIST_DIR}/build/${PROJECT_NAME}.elf
+    VERBATIM
+)
+
+
+
 pico_enable_stdio_usb(${PROGRAM_NAME} TRUE)
 pico_enable_stdio_uart(${PROGRAM_NAME} FALSE)
 
